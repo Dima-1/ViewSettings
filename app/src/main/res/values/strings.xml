@@ -58,6 +58,29 @@
         <item>2</item>
         <item>3</item>
     </string-array>
+ <string-array name="text_size">
+        <item>Smallest</item>
+        <item>Small</item>
+        <item>Default</item>
+        <item>Large</item>
+        <item>Largest</item>
+    </string-array>
+
+    <string-array name="text_size_values">
+        <item>smallest</item>
+        <item>small</item>
+        <item>default</item>
+        <item>large</item>
+        <item>largest</item>
+    </string-array>
+
+    <integer-array name="text_size_offset">
+        <item>-3</item>
+        <item>-2</item>
+        <item>0</item>
+        <item>3</item>
+        <item>5</item>
+    </integer-array>
 
     <string-array name="multi_select_list_preference_default_value" />
 
@@ -72,4 +95,5 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
+    <string name="pref_title_font_size">Text size</string>
 </resources>
