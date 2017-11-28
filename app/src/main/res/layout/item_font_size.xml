@@ -1,34 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginBottom="48dp"
-    android:layout_marginTop="48dp"
-    android:overScrollMode="ifContentScrolls"
-    android:padding="5dip">
+    android:layout_height="wrap_content"
+    android:padding="?android:attr/listPreferredItemPaddingLeft">
 
-    <RelativeLayout
+    <TextView android:id="@+android:id/title"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+        android:fadingEdge="horizontal" />
 
-        <TextView android:id="@+android:id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:ellipsize="marquee"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:fadingEdge="horizontal" />
+    <TextView android:id="@android:id/summary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@android:id/title"
+        android:layout_alignStart="@android:id/title"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:maxLines="4"
+        android:layout_alignLeft="@android:id/title" />
 
-        <TextView android:id="@android:id/summary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@android:id/title"
-            android:layout_alignStart="@android:id/title"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="?android:attr/textColorSecondary"
-            android:maxLines="4"
-            android:layout_alignLeft="@android:id/title" />
-
-    </RelativeLayout>
-
-</ScrollView>
+</RelativeLayout>

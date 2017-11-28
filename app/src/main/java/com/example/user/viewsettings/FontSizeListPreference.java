@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckedTextView;
+import android.widget.TextView;
 
 /**
  * Created by Dim on 24.11.2017.
@@ -26,6 +27,18 @@ public class FontSizeListPreference extends ListPreference {
         super(context, attrs);
     }
 
+    private float getTextSizeByIndex(int index) {
+        return 10 + index * 2;
+    }
+
+    @Override
+    protected void onBindView(View view) {
+        super.onBindView(view);
+        TextView summary = view.findViewById(android.R.id.summary);
+        summary.setTextSize(TypedValue.COMPLEX_UNIT_SP,
+                getTextSizeByIndex(findIndexOfValue(getValue())));
+    }
+
     @Override
     protected void onPrepareDialogBuilder(AlertDialog.Builder builder) {
 
@@ -34,33 +47,14 @@ public class FontSizeListPreference extends ListPreference {
             @NonNull
             @Override
             public View getView(int position, View convertView, @NonNull ViewGroup parent) {
-                float fontSize;
                 CheckedTextView view = (CheckedTextView) convertView;
                 if (view == null) {
                     view = (CheckedTextView) View.inflate(getContext(),
                             R.layout.list_font_size, null);
                 }
-                switch (position) {
-                    case 0:
-                        fontSize = 10;
-                        break;
-                    case 1:
-                        fontSize = 12;
-                        break;
-                    case 2:
-                        fontSize = 14;
-                        break;
-                    case 3:
-                        fontSize = 16;
-                        break;
-                    case 4:
-                        fontSize = 19;
-                        break;
-                    default:
-                        fontSize = 14;
-                }
+
                 view.setText(getEntries()[position]);
-                view.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSize);
+                view.setTextSize(TypedValue.COMPLEX_UNIT_SP, getTextSizeByIndex(position));
                 return view;
             }
         };
