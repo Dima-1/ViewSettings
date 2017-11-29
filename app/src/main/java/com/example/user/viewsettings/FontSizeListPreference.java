@@ -20,7 +20,7 @@ import android.widget.TextView;
 
 public class FontSizeListPreference extends ListPreference {
 
-    private int mClickedDialogEntryIndex;
+    private int clickedDialogEntryIndex;
 
 
     public FontSizeListPreference(Context context, AttributeSet attrs) {
@@ -43,14 +43,14 @@ public class FontSizeListPreference extends ListPreference {
     protected void onPrepareDialogBuilder(AlertDialog.Builder builder) {
 
         ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(getContext(),
-                R.layout.list_font_size, getEntries()) {
+                R.layout.item_font_size_dialog, getEntries()) {
             @NonNull
             @Override
             public View getView(int position, View convertView, @NonNull ViewGroup parent) {
                 CheckedTextView view = (CheckedTextView) convertView;
                 if (view == null) {
                     view = (CheckedTextView) View.inflate(getContext(),
-                            R.layout.list_font_size, null);
+                            R.layout.item_font_size_dialog, null);
                 }
 
                 view.setText(getEntries()[position]);
@@ -58,12 +58,12 @@ public class FontSizeListPreference extends ListPreference {
                 return view;
             }
         };
-        mClickedDialogEntryIndex = findIndexOfValue(getValue());
-        builder.setSingleChoiceItems(adapter, mClickedDialogEntryIndex,
+        clickedDialogEntryIndex = findIndexOfValue(getValue());
+        builder.setSingleChoiceItems(adapter, clickedDialogEntryIndex,
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        mClickedDialogEntryIndex = which;
+                        clickedDialogEntryIndex = which;
                         FontSizeListPreference.this.onClick(dialog, DialogInterface.BUTTON_POSITIVE);
                         dialog.dismiss();
                     }
@@ -75,8 +75,8 @@ public class FontSizeListPreference extends ListPreference {
     protected void onDialogClosed(boolean positiveResult) {
         super.onDialogClosed(positiveResult);
 
-        if (positiveResult && mClickedDialogEntryIndex >= 0 && getEntryValues() != null) {
-            String val = getEntryValues()[mClickedDialogEntryIndex].toString();
+        if (positiveResult && clickedDialogEntryIndex >= 0 && getEntryValues() != null) {
+            String val = getEntryValues()[clickedDialogEntryIndex].toString();
             if (callChangeListener(val)) {
                 setValue(val);
             }
