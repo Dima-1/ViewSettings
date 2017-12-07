@@ -31,6 +31,7 @@
         android:title="@string/pref_title_add_friends_to_messages" />
 
     <com.example.user.viewsettings.FontSizeListPreference
+        android:defaultValue="small"
         android:layout="@layout/view_font_size"
         android:entries="@array/text_size"
         android:entryValues="@array/text_size_values"
