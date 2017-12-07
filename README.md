@@ -1,2 +1,2 @@
 # ViewSettings
-Custom preferences layout
+Custom preferences list layout with espresso tests.
