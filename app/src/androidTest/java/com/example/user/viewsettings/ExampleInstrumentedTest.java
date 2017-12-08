@@ -2,8 +2,6 @@ package com.example.user.viewsettings;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.EditTextPreference;
-import android.preference.ListPreference;
 import android.preference.PreferenceManager;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.ViewAction;
@@ -16,7 +14,6 @@ import org.junit.runner.RunWith;
 
 import java.util.Arrays;
 
-import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.pressBack;
@@ -24,8 +21,6 @@ import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertEquals;
 
 /**
