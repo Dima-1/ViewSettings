@@ -10,7 +10,7 @@ import static org.mockito.Mockito.spy;
 public class SettingsActivityTest {
 
     @Test
-    public void test1()  {
+    public void testIsValidFragment()  {
          class TestPreferenceFragment extends PreferenceFragment {
 
         }
